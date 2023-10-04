@@ -31,4 +31,12 @@ public class AerolineaTest{
 
         asserEquals("No existen suficientes pasajes para La Paz", resultado);
     }
+
+    @Test
+    public void reservaVuelo_PasajesNoDisponiblesParaDestino(){
+        Aerolinea aerolineaMock = spy(aerolinea);
+        doReturn(false).when(aerolineaMock).existePasajes(anyString(), anyInt());
+        aerolineaMock.reservaVuelo("La Paz", 2, 29, 2023, 5);
+        verify(aerolineaMock, never()).disponibles.put(anyString(), anyInt());
+    }
 }
