@@ -1,6 +1,6 @@
 public class Descuentos {
     public static int calcularDescuentos(int salario) throws SalarioInvalidoException {
-        if(salario < 0) {
+        if(salario <= 0) {
             throw new SalarioInvalidoException("El salario no puede ser negativo");
         }
 
